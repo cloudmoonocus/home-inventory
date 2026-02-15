@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
+import "@/lib/env"; // Validate environment variables at startup
 
 const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 

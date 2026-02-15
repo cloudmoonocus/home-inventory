@@ -1,7 +1,9 @@
 import { neon } from "@neondatabase/serverless";
 
+const sql = neon(process.env.DATABASE_URL!);
+
 export function getDb() {
-  return neon(process.env.DATABASE_URL!);
+  return sql;
 }
 
 export type Category = {
