@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import useSWR from "swr";
-import { Plus, Home } from "lucide-react";
+import { Plus, Home, ChevronDown } from "lucide-react";
 import type { Item, Category } from "@/lib/db";
 import { StatsCards } from "./stats-cards";
 import { CategoryBreakdown } from "./category-breakdown";
@@ -21,7 +21,7 @@ export function Dashboard() {
   const [editItem, setEditItem] = useState<Item | null>(null);
   const [deleteId, setDeleteId] = useState<number | null>(null);
   const [deleteLoading, setDeleteLoading] = useState(false);
-  const [showStats, setShowStats] = useState(true);
+  const [showStats, setShowStats] = useState(false);
 
   // Build query string for items
   const params = new URLSearchParams();
@@ -110,12 +110,13 @@ export function Dashboard() {
       </header>
 
       <main className="mx-auto max-w-6xl px-4 py-6 lg:px-6">
-        {/* Stats toggle for mobile */}
+        {/* Stats toggle */}
         <div className="mb-4 flex items-center justify-between">
           <button
             onClick={() => setShowStats(!showStats)}
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
           >
+            <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${showStats ? 'rotate-180' : ''}`} />
             {showStats ? "收起概览" : "展开概览"}
           </button>
           {items && (
