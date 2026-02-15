@@ -8,6 +8,44 @@
   }
 }
 
+/* Prevent accidental zoom on mobile */
+html {
+  -webkit-user-scalable: no;
+  user-scalable: no;
+  -webkit-touch-callout: none;
+}
+
+/* Ensure text sizing is consistent */
+body {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Improve touch interactions on mobile */
+button, input, select, textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0.625rem;
+}
+
+/* Ensure minimum touch target size */
+button, [role="button"], a {
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+}
+
+/* Fix scrolling performance */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent double-tap zoom on buttons/links */
+input, button, select {
+  touch-action: manipulation;
+}
+
 @layer base {
   :root {
     --background: 210 20% 98%;

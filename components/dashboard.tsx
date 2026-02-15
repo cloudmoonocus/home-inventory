@@ -84,27 +84,29 @@ export function Dashboard() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-border bg-card/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 lg:px-6">
-          <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
+      <header className="sticky top-0 z-40 border-b border-border bg-card/80 backdrop-blur-md safe-area-inset-top">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 lg:px-6">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary">
               <Home className="h-4 w-4 text-primary-foreground" />
             </div>
-            <div>
-              <h1 className="text-base font-semibold text-foreground leading-tight">
+            <div className="min-w-0">
+              <h1 className="text-sm sm:text-base font-semibold text-foreground leading-tight truncate">
                 家庭物品管理
               </h1>
-              <p className="text-xs text-muted-foreground hidden sm:block">
+              <p className="text-xs text-muted-foreground hidden sm:block truncate">
                 轻松管理您的家庭物品库存
               </p>
             </div>
           </div>
           <button
             onClick={() => setShowForm(true)}
-            className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+            className="flex items-center justify-center shrink-0 gap-1 sm:gap-2 rounded-lg bg-primary px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium text-primary-foreground hover:bg-primary/90 active:bg-primary/80 transition-colors"
+            title="添加新物品"
           >
             <Plus className="h-4 w-4" />
-            <span>添加物品</span>
+            <span className="hidden xs:inline">添加</span>
+            <span className="inline xs:hidden">+</span>
           </button>
         </div>
       </header>
